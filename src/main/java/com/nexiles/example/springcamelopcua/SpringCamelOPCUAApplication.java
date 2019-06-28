@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019 nexiles GmbH.
+ */
+
 package com.nexiles.example.springcamelopcua;
 
 import lombok.Data;

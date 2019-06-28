@@ -10,7 +10,7 @@ logging:
 
 nexiles:
   # endpoint: tcp://192.168.123.2:4840?allowedSecurityPolicies=None&node=RAW(ns=3;s="103_Servo_G"."M150_Data"."POS_ACT")
-  #endpoint: tcp://127.0.0.1:12686/example?allowedSecurityPolicies=None&samplingInterval=500&node=RAW(ns=2;s=HelloWorld/ScalarTypes/Double)
+  # endpoint: tcp://127.0.0.1:12686/example?allowedSecurityPolicies=None&samplingInterval=500&node=RAW(ns=2;s=HelloWorld/ScalarTypes/Double)
   endpoint: tcp://127.0.0.1:12686/example?allowedSecurityPolicies=None&samplingInterval=500&node=RAW(ns=2;s=HelloWorld/Dynamic/Double)
 
 camel:
@@ -19,6 +19,3 @@ camel:
       default-configuration:
         allowed-security-policies: None
         override-host: true
-
-  springboot:
-    xml-routes-reload-directory: "classpath:camel"

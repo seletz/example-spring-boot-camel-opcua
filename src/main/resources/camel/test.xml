@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+  ~ Copyright (c) 2019 nexiles GmbH.
+  -->
+
 <routes
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://camel.apache.org/schema/spring"
