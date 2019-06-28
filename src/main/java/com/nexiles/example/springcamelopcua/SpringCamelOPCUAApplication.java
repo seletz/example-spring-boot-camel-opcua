@@ -15,12 +15,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @SpringBootApplication
-@EnableScheduling
 @EnableConfigurationProperties
 public class SpringCamelOPCUAApplication {
 
@@ -40,7 +38,7 @@ class Config {
     /**
      * OPC endpoint
      */
-    String endpoint = "tcp://127.0.0.1:12686/example?allowedSecurityPolicies=None&node=RAW(ns=2;s=HelloWorld/ScalarTypes/Boolean)";
+    String endpoint;
 
 }
 
@@ -64,7 +62,9 @@ class OPCUARouteBuilder extends RouteBuilder {
      */
     @Override
     public void configure() {
-        from("milo-client:" + config.getEndpoint()).routeId("Test Route")
+        log.debug("Configuring route for endpoint: {}", config.getEndpoint());
+
+        from(config.getEndpoint()).routeId("Test Route")
                 .process(exchange -> {
                     String routeId = exchange.getFromRouteId();
                     DataValue data = exchange.getIn().getBody(DataValue.class);
